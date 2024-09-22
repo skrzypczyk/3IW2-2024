@@ -1,0 +1,38 @@
+version: '3'
+services:
+  web:
+    build: site
+    ports :
+     - "80:80"
+    volumes:
+     - ./www:/var/www/html/
+     - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ./server/apache2.conf:/etc/apache2/apache2.conf
+     - ./server/php.ini:/usr/local/etc/php/php.ini
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: esgipwd
+      MYSQL_DATABASE: esgi
+      MYSQL_USER: esgi
+      MYSQL_PASSWORD: esgipwd
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mariadb
+      PMA_USER: esgi
+      PMA_PASSWORD: esgipwd
+    ports:
+      - "8080:80"
+
+volumes:
+  mariadb_data:
