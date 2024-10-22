@@ -98,18 +98,18 @@ $cpt += 1;
 
 
 $cpt = 0;
-echo $cpt; //0
-echo $cpt+1; //1//0 -->1
-echo $cpt; //0
-echo $cpt++; //0//1 --> 0
-echo $cpt; //1
-echo --$cpt; //-1//1//0 -->0
-echo $cpt; //0
-//echo --$cpt++; //Erreur
-echo $cpt+=1; //Erreur//1 --> 1
-echo $cpt=+1; //0//Erreur --> 1
-echo $cpt = $cpt+1; //0 --> 2
-echo $cpt; //0 --> 2
+echo $cpt; //
+echo $cpt+1; //
+echo $cpt; //
+echo $cpt++; //
+echo $cpt; //
+echo --$cpt; //
+echo $cpt; //
+echo --$cpt++; //
+echo $cpt+=1; //
+echo $cpt=+1; //
+echo $cpt = $cpt+1; //
+echo $cpt; //
 
 
 for($cpt = 0; $cpt <= 10; $cpt++){
