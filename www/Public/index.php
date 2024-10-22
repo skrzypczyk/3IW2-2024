@@ -15,3 +15,11 @@
  * (Toujours garder en tête de faire un maximum de vérification avec des affichages d'erreur)
  */
 
+$uri = strtolower($_SERVER["REQUEST_URI"]);
+$listOfRoutes = yaml_parse_file("../routes.yml");
+$controller = $listOfRoutes[$uri]["controller"];
+$action = $listOfRoutes[$uri]["action"];
+
+require "../Controller/".$controller.".php";
+$objetController = new $controller();
+$objetController->$action();
