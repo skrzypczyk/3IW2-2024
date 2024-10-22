@@ -1,0 +1,7 @@
+/sinscrire:
+  controller: User
+  action: register
+
+/login:
+  controller: User
+  action: login
