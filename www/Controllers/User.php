@@ -1,4 +1,9 @@
 <?php
+namespace App\Controllers;
+
+use App\Core\User as U;
+use App\Core\View;
+
 class User
 {
     public function register(): void
@@ -8,14 +13,19 @@ class User
 
     public function login(): void
     {
-        echo "Page de connexion";
+        $view = new View("User/login.php", "front.php");
+        //echo $view;
     }
 
 
     public function logout(): void
     {
-        echo "Page de déconnexion";
+        $user = new U;
+        $user->logout();
+        //header("Location: /");
     }
+
+
 
 }
 

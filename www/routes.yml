@@ -1,3 +1,12 @@
+/:
+  controller: Main
+  action: home
+
+/page:
+  controller: Page
+  action: show
+
+
 /sinscrire:
   controller: User
   action: register
