@@ -7,10 +7,19 @@ class View
     private string $v;
     private string $t;
 
+    private array $data=[];
+
     public function __construct(string $v, string $t = "front.php"){
         $this->v =$v;
         $this->t =$t;
     }
+
+    public function addData(string $key, $value):void
+    {
+        $this->data[$key]=$value;
+    }
+
+
 
     public function __toString(){
         return "Voici la vue selectionnée : ".$this->v .
@@ -19,6 +28,7 @@ class View
 
 
     public function __destruct(){
+        extract($this->data);
         include "../Views/".$this->t;
     }
 

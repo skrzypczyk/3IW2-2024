@@ -1,0 +1,1 @@
+<?= $content??"Aucun contenu pour le moment" ?>
